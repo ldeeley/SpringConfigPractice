@@ -1,0 +1,15 @@
+spring:
+    application:
+      name: config-client
+    config:
+      import: optional:configserver:http://localhost:8888
+my:
+  greeting: Not this message
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
