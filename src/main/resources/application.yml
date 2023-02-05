@@ -1,15 +1,26 @@
 spring:
     application:
-      name: config-client
+      name: rnr-config-client
     config:
-      import: optional:configserver:http://localhost:8888
-my:
-  greeting: Not this message
-
-
+      import: optional:configserver:http://rnr-config-server:8888
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://rnr-eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     preferIpAddress: true
+my:
+  greeting: Not this message
+management:
+  endpoint:
+    health:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+
+
